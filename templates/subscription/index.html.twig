@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SubscriptionController!{% endblock %}
+{% block title %}My subscription{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/nibor/hackathon2/src/Controller/SubscriptionController.php'|file_link(0) }}">src/Controller/SubscriptionController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/nibor/hackathon2/templates/subscription/index.html.twig'|file_link(0) }}">templates/subscription/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>My subscription</h1>
+            </div>
+        </div>
+        <div class="row">
+            <ul>
+                <li>
+                    <a href="#">Active Subscription</a>
+                </li>
+                <li>
+                    <a href="#">Inactive Subscription</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a href="#">Create a new subscription</a>
+    </div>
+    
 {% endblock %}
