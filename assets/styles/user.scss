@@ -1,10 +1,26 @@
 .main-user {
 
-    //H1 and all h2
-    .user-title, h2 {
+    h1 {
         margin-left: 3rem;
+        font-weight: bold;
+        font-size: 3.5rem;
+    }
+    //all h2
+    h2 {
+        margin-left: 3rem;
+        font-weight: bold;
+        font-size: 3rem;
     }
 
+    .p-title {
+        margin-left: 3rem;
+        font-weight: bold;
+        font-size: 2rem;
+    }   
+
+    h2 {
+        padding: 2rem 0rem 1.5rem 0rem;
+    }
     //all elements p
     p {
         margin-bottom: 2rem;
@@ -34,19 +50,43 @@
             margin-bottom: 0;
             padding: 2rem 2rem 2rem 3rem ;
             border-top: 1px solid black;
+            font-size: 2rem;
         }
     }
 
     //Personalisation of the first box
     .user-last-order {
-        .delivery-right {
-            text-align: right;
-        }
-    
-        .img-text {
-            display: flex;
-            flex-direction: row;
-        }
+
+        padding: 0;
+        height: 350px;
+
+            .user-box {
+                box-shadow: 4px 7px 11px -2px rgba(0,0,0,0.75)
+            }
+
+            .p-svg {
+                transform: translateY(-150px) ;
+                margin-left: 5rem;
+                color: white;
+                font-size: 2rem;
+            }
+
+            .block-translate {
+                transform: translateY(-150px);
+                padding: 1rem;
+            }
+            .delivery-right {
+                text-align: right;
+                border: 1px solid black;
+                border-radius: 10px;
+                width: 6rem;
+                position: relative;
+            }
+        
+            .img-text {
+                display: flex;
+                flex-direction: row;
+            }
     }
     
 
