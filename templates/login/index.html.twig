@@ -1,20 +1,29 @@
+{# templates/login/index.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{# ... #}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="login-body">
+		<h1 class="connect-you">Se connecter</h1>
+		<div class="login-register">
+			<form action="{{ path('login') }}" method="post">
+				<label for="username">Email</label>
+				<input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+				<label for="password">Mot de passe</label>
+				<input
+				type="password" id="password" name="_password"/>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/wilder/Documents/hackathon2/src/Controller/LoginController.php'|file_link(0) }}">src/Controller/LoginController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/wilder/Documents/hackathon2/templates/login/index.html.twig'|file_link(0) }}">templates/login/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+				{# If you want to control the URL the user is redirected to on success
+								        <input type="hidden" name="_target_path" value="/account"/> #}
+				<div class="loginorregister">
+					<button class="submit-login" type="submit">Connexion</button>
+					<a class="registeryou" href="{{ path('app_register') }}">Créer un compte</a>
+				</div>
+			</form>
+		</div>
+		{% if error %}
+			<div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+	{% endblock %}

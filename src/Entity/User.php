@@ -41,7 +41,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $subscription;
 
     #[ORM\ManyToOne(targetEntity: Expertise::class, inversedBy: 'users')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $job;
 
     /**
@@ -88,6 +88,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUsername(): string
     {
         return (string) $this->email;
+    }
+
+    /**
+     * Set the value of username
+     */
+    public function setUsername($username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
     /**
