@@ -4,25 +4,22 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>My subscription</h1>
-            </div>
-        </div>
-        <div class="row">
-            <ul>
-                <li>
-                    <a href="#">Active Subscription</a>
-                </li>
-                <li>
-                    <a href="#">Inactive Subscription</a>
-                </li>
-            </ul>
-        </div>
+    <div>
+
+        <span style="font-size: xx-large; font-weight:bold;">My subscription</span>
+        
+        <span style="right: 45px;">
+            <i class="fas fa-heart"></i>
+           <a href="#">Create a new subscription</a>
+        </span>
     </div>
     <div>
-        <a href="#">Create a new subscription</a>
+        <span>
+            <a href="#">Active Subscription</a>
+        </span>
+        <span>
+            <a href="#">Inactive Subscription</a>
+        </span>
     </div>
-    
+
 {% endblock %}
