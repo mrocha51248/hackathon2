@@ -6,38 +6,44 @@
 
     <main class="main-user">
         <div class="main">
-            <h1>Welcome to your account</h1>
-            <p>Here you are like at home</p>
+            <div class="user-title">
+                <h1>Welcome to your account</h1>
+                <p>Here you are like at home</p>
+            </div>
 
             <a href="#" class="a-user">
                 <div class="user-last-order user-box">
-                    <p>My last order</p>
-                    <p>IN DELIVERY</p>
-                    <div>
-                        <p><img src="https://picsum.photos/200/300" alt="Your order">10 Flat edge in pine 50*60 mm</p>
-                        <p>Delivery Between 22/10/2021 and 28/10/2021</p>
+                    <p class="bg-blue">My last order</p>
+                    <p class="delivery-right">IN DELIVERY</p>
+                    <p>Delivery Between 22/10/2021 and 28/10/2021</p>
+                    <div class="img-text">
+                        <p><img src="https://picsum.photos/50/50" alt="Your order">10 Flat edge in pine 50*60 mm</p>
                     </div>
                 </div>
             </a>
 
+            <h2>My orders</h2>
 
-            <div class="user-orders user-box">
-                <h2>My orders</h2>
-                <a href="#" class="a-user">
-                    <p>All my orders</p>
-                </a>
+            <div class="user-orders a-box">
+                <div>
+                    <a href="#" class="a-user">
+                        <p>All my orders</p>
+                    </a>
+                </div>
             </div>
 
-            <div class="user-desire-opinion user-box">
-                <h2>My wishes and opinions</h2>
+            <h2>My wishes and opinions</h2>
+
+            <div class="user-desire-opinion a-box">
                 <a href="#" class="a-user">
                     <p>Wishlist</p>
                     <p>Product reviews</p>
                 </a>
             </div>
 
-            <div class="personal-informations user-box">
-                <h2>My personal information</h2>
+            <h2>My personal information</h2>
+
+            <div class="personal-informations a-box">
                 <a href="#" class="a-user">
                     <p>Change my email and password</p>
                     <p>My subscriptions to ManoMano offers</p>
@@ -54,12 +60,15 @@
                 </div>
             </a>
 
-            <div class="logout user-box">
-                <a href="#" class="a-user">
-                    <p>log out</p>
-                </a>
-            </div>
+            <a href="#" class="a-user">
+                <div class="logout user-box">
+                        <p>log out</p>
+                </div>
+            </a>
+
         </div>
     </main>
+
+    {# <i class="fas fa-chevron-right"></i> #}
     
 {% endblock %}
