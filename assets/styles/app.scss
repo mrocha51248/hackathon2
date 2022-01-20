@@ -2,11 +2,12 @@ $color-blue: #0c193a;
 
 @import "~bootstrap/scss/bootstrap";
 @import "user.scss";
+@import "cart.scss";
 
 .bg-blue {
     background-color: $color-blue;
 }
 
 body {
-    background-color: #e0e0e0;
+    background-color: #f5f6f7;
 }
