@@ -24,8 +24,20 @@ class WishListFixtures extends Fixture implements DependentFixtureInterface
             'name' => 'some disinfectant',
             'products' => [
                 [
-                    'product' => 'product_disinfectant',
-                    'quantity' => 200,
+                    'product' => 'product_smoke_alarm',
+                    'quantity' => 1,
+                ],
+                [
+                    'product' => 'product_oil',
+                    'quantity' => 1,
+                ],
+                [
+                    'product' => 'product_batteries',
+                    'quantity' => 1,
+                ],
+                [
+                    'product' => 'product_nails',
+                    'quantity' => 1,
                 ],
             ],
         ],

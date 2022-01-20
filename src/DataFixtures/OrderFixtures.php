@@ -20,11 +20,21 @@ class OrderFixtures extends Fixture implements DependentFixtureInterface
                     'quantity' => 10,
                     'price' => 5.12,
                 ],
+                [
+                    'product' => 'product_oil',
+                    'quantity' => 5,
+                    'price' => 1.02,
+                ],
             ],
         ],
         [
             'orderedAt' => '2015/06/06',
             'products' => [
+                [
+                    'product' => 'product_smoke_alarm',
+                    'quantity' => 30,
+                    'price' => 17.23,
+                ],
                 [
                     'product' => 'product_disinfectant',
                     'quantity' => 200,
