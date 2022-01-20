@@ -27,6 +27,9 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: Score::class)]
     private $score;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $image;
+
     public function __construct()
     {
         $this->score = new ArrayCollection();
@@ -99,6 +102,18 @@ class Product
                 $score->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
