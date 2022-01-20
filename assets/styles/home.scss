@@ -3,8 +3,9 @@
     color: #1e3c87;
 
     h1 {
-        margin-left: 1rem;
-        font-weight: bold;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-weight: bold;
     }
 
     h2 {
@@ -94,16 +95,22 @@
       from {opacity: .4}
       to {opacity: 1}
     }
+
+    .price {
+      position: absolute;
+      bottom: 1rem;
+    }
     
     div.scrollmenu-home {
         background-color: rgb(231, 231, 231);
         overflow: auto;
-        white-space: nowrap;
         height: 17rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0rem 0rem 0rem 1rem;
+        padding: 0rem 0rem 0rem 0.5rem;
+        margin: 0.5rem;
+        word-break: break-word;
       }
       
       div.scrollmenu-home a {
@@ -126,6 +133,7 @@
       }
     
     .test-scroll {
+        position: relative;
         background-color: white;
         display: flex;
         flex-direction: row;
