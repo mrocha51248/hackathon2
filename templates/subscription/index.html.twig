@@ -34,13 +34,19 @@
         text-align: center;
         list-style-type: none;
     }
-    .sub-nav-item:hover { border-bottom: 4px solid #01ddc6; }
-    .sub-nav-item-link {
+    .sub-nav-item:hover {
+         border-bottom: 4px solid #01ddc6;
+    }
+    .sub-nav-item-link,
+    .new-sub-link {
         color: #0c193a;
         text-decoration: none;
         cursor: pointer;
     }
-    .sub-nav-item-link:hover { color: #0c193a; }
+    .sub-nav-item-link:hover,
+    .new-sub-link:hover {
+        color: #0c193a;
+    }
 </style>
 
     <div>
@@ -49,7 +55,7 @@
         
         <span>
             <i class="fas fa-heart"></i>
-           <a href="#">Create a new subscription</a>
+           <a class="new-sub-link" href="#">Create a new subscription</a>
         </span>
     </div>
     <nav class="sub-nav">
