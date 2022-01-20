@@ -1,5 +1,5 @@
 .cart{
-    padding: 16px;
+    padding: 16px 16px 0 16px;
 }
 
 .rootCart{
@@ -72,4 +72,13 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card{
+    padding: .5rem;
+}
+
+.pricequantity{
+    display: flex;
+    justify-content: space-between;
 }

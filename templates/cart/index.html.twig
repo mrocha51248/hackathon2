@@ -36,5 +36,22 @@
         </div>
     </div>
 </section>
+<section class="show-cart">
+    <ul>
+    {% for cart in carts %}
+        <li>
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{ cart.product.image}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ cart.product.name}}</h5>
+                <div class="pricequantity">
+                    <p>Quantity : {{ cart.quantity}}</p>
+                    <p class="card-text">{{ cart.product.price}} €</p>
+                </div>
+                <a href="{{ path('cart_delete', {'id': cart.id}) }}" class="btn btn-primary">delete</a>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+</section>
 {% endblock %}
-
