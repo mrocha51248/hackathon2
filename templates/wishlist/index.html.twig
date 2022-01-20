@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Wish Lists{% endblock %}
+
+{% block body %}
+<div>
+    <a class="new-sub-link" href="{{ path('user_index') }}">Profile</a><span> > Wish Lists</span>
+    <h1>My wish lists</h1>
+    <span>
+        <i class="fas fa-heart"></i>
+        <a class="new-sub-link" href="#">Create a new wish list</a>
+    </span>
+</div>
+{% for wishlist in wishlists %}
+    <div class="wishlist">
+        <h1>{{ wishlist.name }}</h1>
+        {% for product in wishlist.wishlistProducts %}
+            <div class="wishlist-product">
+                <h2>{{ product.product.name }}</h2>
+                <p>Quantity: {{ product.quantity }}</p>
+            </div>
+        {% endfor %}
+        <form class="sub-products-form" action="{{ path('new_subscription_from_list', {id: wishlist.id}) }}" method="GET">
+            <select name="products" id="products-select">
+                <option value="">--Delivery every</option>
+                <option value="P2W">2 weeks</option>
+                <option value="P3W">3 weeks</option>
+                <option value="P1M">1 month</option>
+                <option value="P5W">5 weeks</option>
+                <option value="P2M">2 months</option>
+                <option value="P3M">3 months</option>
+                <option value="P4M">4 months</option>
+                <option value="P5M">5 months</option>
+                <option value="P6M">6 months</option>
+            </select>
+
+            <button type="submit">Create a subscription</button>
+        </form>
+    </div>
+{% endfor %}
+{% endblock %}
