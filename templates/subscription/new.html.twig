@@ -35,6 +35,61 @@
             </ul>
         </div>
     </nav>
+
+    {# Start div for hover reaction #}
+
+    <div>
+        <p>From a basket</p>
+    </div>
+
+    <div>
+        <p>From a list</p>
+    </div>
+
+    <div class="sub-products-job">
+        <h2>From your job</h2>
+        <p>This list as been generated in relation with your job</p>
+        {% for product in products %}
+            <div class="sub-products-img">
+                <div class="sub-product-name-img">
+                    <img src="{{ product.image }}" width="20%" alt="{{ product.name }}">
+                    <p>{{ product.name }}</p>
+                </div>
+                <div class="sub-products-number-price">
+                    <div class="sub-input">
+                        <label for="">Articles number</label>
+                        <input type="number">
+                    </div>
+                    <div class="sub-totalPrice-availability">
+                        <p class="sub-available">Available</p>
+                        <p>Price : 25$</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <p class="sub-new-products">Need some products ?</p>
+
+        <form class="sub-products-form" action="">
+            <select name="products" id="products-select">
+                <option value="">--Delivery every</option>
+                <option value="2 weeks">2 weeks</option>
+                <option value="3 weeks">3 weeks</option>
+                <option value="1 month">1 month</option>
+                <option value="5 weeks">5 weeks</option>
+                <option value="2 months">2 months</option>
+                <option value="3 months">3 months</option>
+                <option value="4 months">4 months</option>
+                <option value="5 months">5 months</option>
+                <option value="6 months">6 months</option>
+            </select>
+
+            <button type="submit">Validate the order</button>
+        </form>
+
+    </div>
+
+    </div>
     {# Switch by if in controller #}
     <header>
         {# inclure the render for active or inactive subs #}
