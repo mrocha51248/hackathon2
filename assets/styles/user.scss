@@ -1,0 +1,126 @@
+.main-user {
+
+    h1 {
+        margin: 1.5rem 0 0 1rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    //all h2
+    h2 {
+        margin-left: 1rem;
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    .p-title {
+        margin-left: 1rem;
+        font-weight: bold;
+        font-size: 1rem;
+    }   
+
+    h2 {
+        padding: 2rem 0rem 0.5rem 0rem;
+    }
+    //all elements p
+    p {
+        margin-bottom: 1rem;
+    }
+
+    //For box with title in own box
+    .user-box {
+        background-color: #fff;
+        border: 1px solid black;
+        margin: 0rem 1rem 1.5rem 1rem;
+        padding: 1rem;
+        border-radius: 4px;
+
+    }
+
+    //Remove underline in links
+    .a-user {
+        text-decoration: none;
+        color: black;
+
+        .user-last-order {
+            height: 240px;
+        }
+
+        .block-translate {
+            transform: translateY(-70px);
+        }
+    }
+    
+    //Box with title outdoor
+    .a-box {
+        border: 0px 1px 1px 1px solid black;
+        background-color: #fff;
+
+        p {
+            margin-bottom: 0;
+            padding: 1rem 1rem 1rem 1rem ;
+            font-size: 1rem;
+        }
+    }
+
+    //Personalisation of the first box
+    .user-last-order {
+
+        padding: 0;
+
+            .user-box {
+                box-shadow: 4px 7px 11px -2px rgba(0,0,0,0.75)
+            }
+
+            .p-svg {
+                //transform: translateY(-150px) ;
+                margin: 0 2 2 3rem;
+                color: rgb(255, 255, 255);
+                font-size: 1rem;
+            }
+
+            .block-translate {
+                padding: 1rem;
+            }
+            .delivery-right {
+                text-align: right;
+                border: 1px solid black;
+                border-radius: 10px;
+                width: 6rem;
+            }
+        
+            .img-text {
+                display: flex;
+                flex-direction: row;
+            }
+    }
+
+    .flex-chevron {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-top: 1px solid black;
+    }
+
+    //Personalisation of the second box
+    .need-help {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+            h2 {
+                padding: 0;
+            }
+
+            p {
+                margin: 0 0 0 1rem;
+            }
+    }
+
+    .logout .flex-chevron {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

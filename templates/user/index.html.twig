@@ -1,41 +1,79 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>Username</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.username }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <main class="main-user">
+        <div class="main">
+            <div class="user-title">
+                <h1>Welcome to your account</h1>
+                <p class="p-title">Here you are like at home</p>
+            </div>
+            
+            <a href="#" class="a-user">
+                <div class="user-last-order user-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#335AB1" fill-opacity="1" d="M0,160L60,186.7C120,213,240,267,360,250.7C480,235,600,149,720,101.3C840,53,960,43,1080,32C1200,21,1320,11,1380,5.3L1440,0L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+                    </svg>
+                    <div class="block-translate">
+                        <p class="p-svg">My last order</p>
+                        <p class="delivery-btn">IN DELIVERY</p>
+                        <p>Delivery Between 22/10/2021 and 28/10/2021</p>
+                        <div class="img-text">
+                            <p><img src="https://picsum.photos/50/50" alt="Your order">10 Flat edge in pine 50*60 mm</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+            <h2>My orders</h2>
+
+            <div class="user-orders a-box">
+                <div>
+                    <a href="#" class="a-user">
+                        <div class="flex-chevron"><p>All my orders</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                        <div class="flex-chevron"><p>Subscribe</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                    </a>
+                </div>
+            </div>
+
+            <h2>My wishes and opinions</h2>
+
+            <div class="user-desire-opinion a-box">
+                <a href="#" class="a-user">
+                    <div class="flex-chevron"><p>Wishlist</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                    <div class="flex-chevron"><p>Product reviews</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                </a>
+            </div>
+
+            <h2>My personal information</h2>
+
+            <div class="personal-informations a-box">
+                <a href="#" class="a-user">
+                    <div class="flex-chevron"><p>Change my email and password</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                    <div class="flex-chevron"><p>My subscriptions to ManoMano offers</p> <p><i class="fas fa-chevron-right"></i></p></div>
+                </a>
+            </div>
+
+            <a href="#" class="a-user a-user-flex">
+                <div class="need-help user-box">
+                    <img src="https://picsum.photos/50/50" alt="?">
+                    <div>
+                        <h2>Need help ?</h2>
+                        <p>Access our help center and find the answer to all your questions!</p>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <div class="logout a-box">
+                <a href="#" class="a-user">
+                    <div class="flex-chevron"><p>log out</p><i class="fas fa-sign-out-alt"></i></div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    {# <i class="fas fa-chevron-right"></i> #}
 {% endblock %}
