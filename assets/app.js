@@ -33,7 +33,8 @@ function showSlides(n) {
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  else if (n < 1) {slideIndex = slides.length}
+  else slideIndex = n
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
@@ -50,3 +51,6 @@ for (let i = 0; i < dots.length; i++) {
     const dot = dots[i];
     dot.addEventListener('click', function() {showSlides(i + 1)})
 }
+
+document.querySelector(".prev").addEventListener('click', function() {plusSlides(-1)} )
+document.querySelector(".next").addEventListener('click', function() {plusSlides(1)} )
