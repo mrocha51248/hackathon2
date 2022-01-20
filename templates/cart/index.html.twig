@@ -48,7 +48,6 @@
                     <p>Quantity : {{ cart.quantity}}</p>
                     <p class="card-text">{{ cart.product.price}} €</p>
                 </div>
-                <a href="{{ path('cart_delete', {'id': cart.id}) }}" class="btn btn-primary">delete</a>
             </div>
         </li>
     {% endfor %}
