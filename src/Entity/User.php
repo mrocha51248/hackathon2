@@ -31,9 +31,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $username;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, orphanRemoval: true)]
     private $orders;
 
@@ -95,7 +92,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function setUsername($username): self
     {
-        $this->username = $username;
+        $this->email = $username;
 
         return $this;
     }
