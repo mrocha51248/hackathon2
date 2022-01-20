@@ -1,5 +1,12 @@
+$color-blue: #0c193a;
+
 @import "~bootstrap/scss/bootstrap";
+@import "user.scss";
+
+.bg-blue {
+    background-color: $color-blue;
+}
 
 body {
-    background-color: lightgray;
+    background-color: #e0e0e0;
 }
