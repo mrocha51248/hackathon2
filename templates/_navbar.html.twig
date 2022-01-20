@@ -8,13 +8,18 @@
     </a>
     <ul class="navbar-nav flex-row align-items-center ms-auto gap-4" style="font-size:28px">
       <li class="nav-item">
-        <a class="nav-link py-0" href="#"><i class="far fa-heart"></i></a>
+        <a class="nav-link py-0 small" href="#"><i class="far fa-heart"></i></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link py-0 small" href="{{ path('subscription') }}"><i class="far fa-clock"></i></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link py-0 small" href="{{ path('user_index') }}"><i class="far fa-user"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link py-0" href="{{ path('user_index') }}"><i class="far fa-user"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link py-0" href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav-link py-0 small" href="#"><i class="fas fa-shopping-cart"></i></a>
       </li>
     </ul>
     <form class="w-100 mt-2">
