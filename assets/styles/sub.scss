@@ -40,3 +40,44 @@
     .new-sub-link:hover {
         color: #0c193a;
     }
+
+    .sub-products-job {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .sub-products-img {
+       margin: 1rem;
+       padding: 1rem;
+       border: 1px solid black;
+       display: flex;
+       flex-direction: row;
+    }
+
+    .sub-new-products {
+        border: 1px solid black;
+        width: 50%;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .sub-product-name-img {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 50%;
+        }
+    }
+
+    .sub-products-number-price {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+            
+            .sub-input {
+                height: 20%;
+            }
+    }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,8 +19,8 @@ class SubscriptionController extends AbstractController
     }
 
     #[Route('/new', name: 'new_subscription')]
-    public function new(): Response
+    public function new(ProductRepository $productRepository): Response
     {
-        return $this->render('subscription/new.html.twig');
+        return $this->render('subscription/new.html.twig', ['products' => $productRepository->findBy([], ['name' => 'DESC'], 3)]);
     }
 }

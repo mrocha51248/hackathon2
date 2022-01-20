@@ -35,6 +35,45 @@
             </ul>
         </div>
     </nav>
+
+    {# Start div for hover reaction #}
+
+    <div>
+        <p>From a basket</p>
+    </div>
+
+    <div>
+        <p>From a list</p>
+    </div>
+
+    <div class="sub-products-job">
+        <h2>From your job</h2>
+        <p>This list as been generated in relation with your job</p>
+        {% for product in products %}
+            <div class="sub-products-img">
+                <div class="sub-product-name-img">
+                    <img src="{{ product.image }}" width="20%" alt="{{ product.name }}">
+                    <p>{{ product.name }}</p>
+                </div>
+                <div class="sub-products-number-price">
+                    <div class="sub-input">
+                        <label for="">Articles number</label>
+                        <input type="number">
+                    </div>
+                    <p>Price : 25$</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <p class="sub-new-products">Need some products ?</p>
+
+        <form action="">
+            <input type="number">
+        </form>
+
+    </div>
+
+    </div>
     {# Switch by if in controller #}
     <header>
         {# inclure the render for active or inactive subs #}
