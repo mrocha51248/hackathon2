@@ -17,7 +17,10 @@ class Subscription
     private $name;
 
     #[ORM\Column(type: 'date')]
-    private $duration;
+    private $nextDelivery;
+
+    #[ORM\Column(type: 'dateinterval')]
+    private $period;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'subscriptions')]
     #[ORM\JoinColumn(nullable: false)]
@@ -40,14 +43,14 @@ class Subscription
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
+    public function getNextDelivery(): ?\DateTimeInterface
     {
-        return $this->duration;
+        return $this->nextDelivery;
     }
 
-    public function setDuration(\DateTimeInterface $duration): self
+    public function setNextDelivery(\DateTimeInterface $nextDelivery): self
     {
-        $this->duration = $duration;
+        $this->nextDelivery = $nextDelivery;
 
         return $this;
     }
@@ -60,6 +63,18 @@ class Subscription
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPeriod(): ?\DateInterval
+    {
+        return $this->period;
+    }
+
+    public function setPeriod(\DateInterval $period): self
+    {
+        $this->period = $period;
 
         return $this;
     }
