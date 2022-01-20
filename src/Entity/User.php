@@ -34,22 +34,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, orphanRemoval: true)]
     private $orders;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Subscription::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Subscription::class, orphanRemoval: true)]
     private $subscriptions;
 
     #[ORM\ManyToOne(targetEntity: Expertise::class, inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: true)]
     private $job;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: WishList::class, orphanRemoval: true)]
+    private $wishLists;
+
+    #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->subscriptions = new ArrayCollection();
+        $this->wishLists = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -231,6 +233,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|WishList[]
+     */
+    public function getWishLists(): Collection
+    {
+        return $this->wishLists;
+    }
+
+    public function addWishList(WishList $wishList): self
+    {
+        if (!$this->wishLists->contains($wishList)) {
+            $this->wishLists[] = $wishList;
+            $wishList->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWishList(WishList $wishList): self
+    {
+        if ($this->wishLists->removeElement($wishList)) {
+            // set the owning side to null (unless already changed)
+            if ($wishList->getUser() === $this) {
+                $wishList->setUser(null);
+            }
+        }
 
         return $this;
     }
