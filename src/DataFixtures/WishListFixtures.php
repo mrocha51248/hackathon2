@@ -12,7 +12,7 @@ class WishListFixtures extends Fixture implements DependentFixtureInterface
 {
     public const WISHLISTS = [
         [
-            'name' => 'a lot of disinfectant',
+            'name' => 'A lot of disinfectant',
             'products' => [
                 [
                     'product' => 'product_disinfectant',
@@ -21,7 +21,7 @@ class WishListFixtures extends Fixture implements DependentFixtureInterface
             ],
         ],
         [
-            'name' => 'some disinfectant',
+            'name' => 'My shopping list',
             'products' => [
                 [
                     'product' => 'product_smoke_alarm',
