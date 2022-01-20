@@ -114,6 +114,7 @@
         text-decoration: none;
         border: 1px solid rgb(0, 0, 0);
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 15rem;
@@ -126,5 +127,12 @@
     
     .test-scroll {
         background-color: white;
+        display: flex;
+        flex-direction: row;
+
+          p {
+            text-overflow: auto;
+            max-width: 100%;
+          }
     }
 }

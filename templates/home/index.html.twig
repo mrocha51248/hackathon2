@@ -38,45 +38,31 @@
     <h2>Plein de produits pour vous réunis ici</h2>
 
     <div class="scrollmenu-home">
+      {% for product in products %}
         <div class="test-scroll">
-          <a href="#"><p>Article</p></a>
+          <a href="#">
+            <img src="{{ product.image }}" width="100px" alt="">
+            <p class="product-name">{{ product.name }}</p>
+            <p>{{product.price}}</p>
+          </a>
         </div>
-        <div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div><div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div><div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div><div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div><div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div><div class="test-scroll">
-          <a href="#"><p>Article</p></a>
-        </div>
-    </div> 
+      {% endfor %}
+    </div>
 
     <h1>Notre sélection maison</h1>
     <h2>Plein de produits pour vous réunis ici</h2>
 
     <div class="scrollmenu-home">
-      <div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div>
-      <div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div><div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div><div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div><div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div><div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div><div class="test-scroll">
-        <a href="#"><p>Article</p></a>
-      </div>
-  </div>
+      {% for product in products %}
+        <div class="test-scroll">
+          <a href="#">
+            <img src="{{ product.image }}" width="50px" alt="">
+            <p>{{ product.name }}</p>
+            <p>{{product.price}}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
 
   <div class="img-soldes">
     <img src="{{ asset('build/images/soldes.png') }}" width="100%" alt="soldes">
