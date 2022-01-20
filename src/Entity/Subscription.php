@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SubscriptionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SubscriptionRepository::class)]
@@ -17,11 +19,22 @@ class Subscription
     private $name;
 
     #[ORM\Column(type: 'date')]
-    private $duration;
+    private $nextDelivery;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'subscription')]
+    #[ORM\Column(type: 'dateinterval')]
+    private $period;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'subscriptions')]
     #[ORM\JoinColumn(nullable: false)]
     private $user;
+
+    #[ORM\OneToMany(mappedBy: 'subscription', targetEntity: SubscriptionProduct::class, orphanRemoval: true)]
+    private $subscriptionProducts;
+
+    public function __construct()
+    {
+        $this->subscriptionProducts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -40,14 +53,14 @@ class Subscription
         return $this;
     }
 
-    public function getDuration(): ?\DateTimeInterface
+    public function getNextDelivery(): ?\DateTimeInterface
     {
-        return $this->duration;
+        return $this->nextDelivery;
     }
 
-    public function setDuration(\DateTimeInterface $duration): self
+    public function setNextDelivery(\DateTimeInterface $nextDelivery): self
     {
-        $this->duration = $duration;
+        $this->nextDelivery = $nextDelivery;
 
         return $this;
     }
@@ -60,6 +73,48 @@ class Subscription
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPeriod(): ?\DateInterval
+    {
+        return $this->period;
+    }
+
+    public function setPeriod(\DateInterval $period): self
+    {
+        $this->period = $period;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SubscriptionProduct[]
+     */
+    public function getSubscriptionProducts(): Collection
+    {
+        return $this->subscriptionProducts;
+    }
+
+    public function addSubscriptionProduct(SubscriptionProduct $subscriptionProduct): self
+    {
+        if (!$this->subscriptionProducts->contains($subscriptionProduct)) {
+            $this->subscriptionProducts[] = $subscriptionProduct;
+            $subscriptionProduct->setSubscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubscriptionProduct(SubscriptionProduct $subscriptionProduct): self
+    {
+        if ($this->subscriptionProducts->removeElement($subscriptionProduct)) {
+            // set the owning side to null (unless already changed)
+            if ($subscriptionProduct->getSubscription() === $this) {
+                $subscriptionProduct->setSubscription(null);
+            }
+        }
 
         return $this;
     }
