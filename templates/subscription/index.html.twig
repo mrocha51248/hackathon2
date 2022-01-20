@@ -33,7 +33,26 @@
             </ul>
         </div>
     </nav>
-    {# Switch by if in controller #}
+    {% for subscription in subscriptions %}
+        <div class="subscription">
+            <h1>{{ subscription.name }}</h1>
+            {% if subscription.period.y == 1 %}{% set date_text = 'year' %}{% endif %}
+            {% if subscription.period.y > 1 %}{% set date_text = subscription.period.y ~ ' years' %}{% endif %}
+            {% if subscription.period.m == 1 %}{% set date_text = 'month' %}{% endif %}
+            {% if subscription.period.m > 1 %}{% set date_text = subscription.period.m ~ ' months' %}{% endif %}
+            {% if subscription.period.d == 1 %}{% set date_text = 'day' %}{% endif %}
+            {% if subscription.period.d > 1 %}{% set date_text = subscription.period.d ~ ' days' %}{% endif %}
+            <p>Every {{ date_text }}</p>
+            <p>Next delivery: {{ subscription.nextDelivery|date }}</p>
+            {% for product in subscription.subscriptionProducts %}
+                <div class="subscription-product">
+                    <h2>{{ product.product.name }}</h2>
+                    <p>{{ product.price }} €</p>
+                    <p>Quantity: {{ product.quantity }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
     <header>
         {# inclure the render for active or inactive subs #}
     </header>
