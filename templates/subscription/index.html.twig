@@ -3,56 +3,18 @@
 {% block title %}My subscription{% endblock %}
 
 {% block body %}
-<style>
-    *, ::after, ::before {
-        box-sizing: border-box;
-    }
-    body {
-        font-family: Open Sans, mm-main, Arial, sans-serif;
-        font-size: 14px;
-    }
-    .sub-nav {
-        display: block;
-        margin-right: 0;
-        width: 100%;
-    }
-    .sub-nav-container {
-        display: block;
-        padding: 20px 0;
-    }
-    .sub-nav-wrapper {
-        display: table;
-        padding: 10px 0 0;
-        margin: 0;
-        width: 100%;
-    }
-    .sub-nav-item {
-        border-bottom: 4px solid #0c193a;
-        display: table-cell;
-        list-style: none;
-        padding: 10px;
-        text-align: center;
-        list-style-type: none;
-    }
-    .sub-nav-item:hover {
-         border-bottom: 4px solid #01ddc6;
-    }
-    .sub-nav-item-link,
-    .new-sub-link {
-        color: #0c193a;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .sub-nav-item-link:hover,
-    .new-sub-link:hover {
-        color: #0c193a;
-    }
-</style>
-
-    <div>
-
-        <h1>My subscription</h1>
+    <style>
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
         
+        body {
+            font-family: Open Sans, mm-main, Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+    <div>
+        <h1>My subscription</h1>
         <span>
             <i class="fas fa-heart"></i>
            <a class="new-sub-link" href="#">Create a new subscription</a>
@@ -64,10 +26,14 @@
                 <li class="sub-nav-item">
                     <a class="sub-nav-item-link" href="#">Active Subscription</a>
                 </li>
-               <li class="sub-nav-item">
+                <li class="sub-nav-item">
                     <a class="sub-nav-item-link" href="#">Inactive Subscription</a>
                 </li>
             </ul>
         </div>
     </nav>
+    {# Switch by if in controller #}
+    <header>
+        {# inclure the render for active or inactive subs #}
+    </header>
 {% endblock %}
