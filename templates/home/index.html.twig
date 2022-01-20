@@ -42,8 +42,8 @@
         <div class="test-scroll">
           <a href="#">
             <img src="{{ product.image }}" width="100px" alt="">
-            <p class="product-name">{{ product.name }}</p>
-            <p>{{product.price}}</p>
+            <p class="product-name text-dark">{{ product.name }}</p>
+            <p class="price text-dark">{{product.price}}€</p>
           </a>
         </div>
       {% endfor %}
@@ -57,8 +57,8 @@
         <div class="test-scroll">
           <a href="#">
             <img src="{{ product.image }}" width="50px" alt="">
-            <p>{{ product.name }}</p>
-            <p>{{product.price}}</p>
+            <p class="text-dark">{{ product.name }}</p>
+            <p class="price text-dark">{{product.price}}€</p>
           </a>
         </div>
       {% endfor %}
