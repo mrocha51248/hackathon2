@@ -60,15 +60,31 @@
                         <label for="">Articles number</label>
                         <input type="number">
                     </div>
-                    <p>Price : 25$</p>
+                    <div class="sub-totalPrice-availability">
+                        <p class="sub-available">Available</p>
+                        <p>Price : 25$</p>
+                    </div>
                 </div>
             </div>
         {% endfor %}
 
         <p class="sub-new-products">Need some products ?</p>
 
-        <form action="">
-            <input type="number">
+        <form class="sub-products-form" action="">
+            <select name="products" id="products-select">
+                <option value="">--Delivery every</option>
+                <option value="2 weeks">2 weeks</option>
+                <option value="3 weeks">3 weeks</option>
+                <option value="1 month">1 month</option>
+                <option value="5 weeks">5 weeks</option>
+                <option value="2 months">2 months</option>
+                <option value="3 months">3 months</option>
+                <option value="4 months">4 months</option>
+                <option value="5 months">5 months</option>
+                <option value="6 months">6 months</option>
+            </select>
+
+            <button type="submit">Validate the order</button>
         </form>
 
     </div>
