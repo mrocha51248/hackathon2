@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My subscription{% endblock %}
+
+{% block body %}
+    <style>
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Open Sans, mm-main, Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+
+    
+    <div>
+        <span>
+           <a class="new-sub-link" href="{{ path('user_index') }}">My profile </a> <span>> Subcriptions</span>
+        </span>
+        <h1>Create subscription</h1>
+    </div>
+    <nav class="sub-nav">
+        <div class="sub-nav-container">
+            <ul class="sub-nav-wrapper">
+                <li class="sub-nav-item">
+                    <a class="sub-nav-item-link" href="#">From a basket</a>
+                </li>
+                <li class="sub-nav-item">
+                    <a class="sub-nav-item-link" href="#">From a list</a>
+                </li>
+                <li class="sub-nav-item">
+                    <a class="sub-nav-item-link" href="#">From a job</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {# Switch by if in controller #}
+    <header>
+        {# inclure the render for active or inactive subs #}
+    </header>
+{% endblock %}
