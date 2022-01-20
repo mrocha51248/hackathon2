@@ -23,6 +23,9 @@ class Order
     #[ORM\OneToMany(mappedBy: 'command', targetEntity: OrderProduct::class)]
     private $orderProducts;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $orderedAt;
+
     public function __construct()
     {
         $this->orderProducts = new ArrayCollection();
@@ -71,6 +74,18 @@ class Order
                 $orderProduct->setCommand(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOrderedAt(): ?\DateTimeImmutable
+    {
+        return $this->orderedAt;
+    }
+
+    public function setOrderedAt(\DateTimeImmutable $orderedAt): self
+    {
+        $this->orderedAt = $orderedAt;
 
         return $this;
     }
