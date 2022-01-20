@@ -19,7 +19,7 @@ class Subscription
     #[ORM\Column(type: 'date')]
     private $duration;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'subscription')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'subscriptions')]
     #[ORM\JoinColumn(nullable: false)]
     private $user;
 
