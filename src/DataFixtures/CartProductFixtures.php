@@ -12,7 +12,11 @@ class CartProductFixtures extends Fixture implements DependentFixtureInterface
     public const PRODUCTS = [
         [
             'product' => 'product_disinfectant',
-            'quantity' => 150,
+            'quantity' => 10,
+        ],
+        [
+            'product' => 'product_batteries',
+            'quantity' => 1,
         ],
     ];
 

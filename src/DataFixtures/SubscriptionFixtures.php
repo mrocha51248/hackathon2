@@ -16,12 +16,12 @@ class SubscriptionFixtures extends Fixture implements DependentFixtureInterface
         [
             'name' => 'long term plan',
             'nextDelivery' => '2030/09/09',
-            'period' => 'P10Y',
+            'period' => 'P5Y',
             'products' => [
                 [
-                    'product' => 'product_disinfectant',
-                    'quantity' => 10000,
-                    'price' => 1.12,
+                    'product' => 'product_batteries',
+                    'quantity' => 10,
+                    'price' => 116.12,
                 ],
             ],
         ],
@@ -34,6 +34,11 @@ class SubscriptionFixtures extends Fixture implements DependentFixtureInterface
                     'product' => 'product_disinfectant',
                     'quantity' => 200,
                     'price' => 7.23,
+                ],
+                [
+                    'product' => 'product_oil',
+                    'quantity' => 10,
+                    'price' => 6.14,
                 ],
             ],
         ],
