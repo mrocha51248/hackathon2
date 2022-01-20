@@ -27,9 +27,9 @@ class SubscriptionController extends AbstractController
     }
 
     #[Route('/new', name: 'new_subscription')]
-    public function new(): Response
+    public function new(ProductRepository $productRepository): Response
     {
-        return $this->render('subscription/new.html.twig');
+        return $this->render('subscription/new.html.twig', ['products' => $productRepository->findBy([], ['name' => 'DESC'], 3)]);
     }
 
     #[Route('/new_from_list/{id}', name: 'new_subscription_from_list')]
