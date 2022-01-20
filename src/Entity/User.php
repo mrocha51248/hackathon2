@@ -31,14 +31,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $username;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class, orphanRemoval: true)]
     private $orders;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Subscription::class)]
-    private $subscription;
+    private $subscriptions;
 
     #[ORM\ManyToOne(targetEntity: Expertise::class, inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: true)]
@@ -52,7 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->orders = new ArrayCollection();
-        $this->subscription = new ArrayCollection();
+        $this->subscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,7 +92,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function setUsername($username): self
     {
-        $this->username = $username;
+        $this->email = $username;
 
         return $this;
     }
@@ -187,15 +184,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection|Subscription[]
      */
-    public function getSubscription(): Collection
+    public function getSubscriptions(): Collection
     {
-        return $this->subscription;
+        return $this->subscriptions;
     }
 
     public function addSubscription(Subscription $subscription): self
     {
-        if (!$this->subscription->contains($subscription)) {
-            $this->subscription[] = $subscription;
+        if (!$this->subscriptions->contains($subscription)) {
+            $this->subscriptions[] = $subscription;
             $subscription->setUser($this);
         }
 
@@ -204,7 +201,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeSubscription(Subscription $subscription): self
     {
-        if ($this->subscription->removeElement($subscription)) {
+        if ($this->subscriptions->removeElement($subscription)) {
             // set the owning side to null (unless already changed)
             if ($subscription->getUser() === $this) {
                 $subscription->setUser(null);
