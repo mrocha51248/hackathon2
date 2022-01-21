@@ -1,29 +1,74 @@
-{# templates/login/index.html.twig #}
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0", shrink-to-fit=no">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
 
-{# ... #}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
 
-{% block body %}
+	<nav class="navlogin">
+		<p><  Retour</p>
+		<img src="https://iam.manomano.fr/auth/resources/43yk4/login/spartacux-pro/img/logo.svg" height="50%" alt="Pre Footer">
+	</nav>
+	{% if error %}
+			<div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+    {% block body %}
 	<div class="login-body">
-		<h1 class="connect-you">Se connecter</h1>
+		<h1>Bonjour chez vous !</h1>
+		<p class="first-p">Connectez-vous pour accéder à ManoManoPro</p> 
 		<div class="login-register">
 			<form action="{{ path('login') }}" method="post">
-				<label for="username">Email</label>
-				<input type="text" id="username" name="_username" value="{{ last_username }}"/>
+				<div>
+					<label for="username" class="col-sm-2 col-form-label col-form-label-lg"></label>
+					<input type="email" class="form-control form-control-lg" placeholder="Adress email" id="username colFormLabelLg" name="_username" value="{{ last_username }}"/>
 
-				<label for="password">Mot de passe</label>
-				<input
-				type="password" id="password" name="_password"/>
-
-				{# If you want to control the URL the user is redirected to on success
-								        <input type="hidden" name="_target_path" value="/account"/> #}
-				<div class="loginorregister">
-					<button class="submit-login" type="submit">Connexion</button>
-					<a class="registeryou" href="{{ path('app_register') }}">Créer un compte</a>
+					<label for="password" class="col-sm-2 col-form-label col-form-label-lg"></label>
+					<input type="password" class="form-control form-control-lg" placeholder="Password" id="password colFormLabelLg" name="_password"/>
+				</div>
+				<div class="div-oublie">
+					<a class="oublie" href="#">Mot de passe oublié ?</a>
+					<div class="checkbox-div">
+						<input type="checkbox" id="scales" name="scales" checked>
+						<label for="scales">Rester Connecté(s)</label>
+					</div>
+					<div class="loginorregister">
+						<button class="submit-login form-control form-control-lg" type="submit">Se connecter</button>
+					</div>
+				</div>
+				<div class="create">
+					<p class="pOne"><strong>Pas encore de compte Pro ?</strong></p>
+					<p>Ici, on facilite votre activité</p>
+					<a class="registeryou form-control form-control-lg" href="{{ path('app_register') }}">Créer un compte Pro gratuitement</a>
 				</div>
 			</form>
 		</div>
-		{% if error %}
-			<div class="invalidlogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
+		<div class="voulez">
+			<p class="pOne"><strong>Voulez vous passer votre compte en Pro ?</strong></p>
+			<p>Pour la migration de votre compte, commencer</p>
+			<p>par vous connecter ci-dessus avec les identifiants</p>
+			<p>de votre compte particulier</p>
+		</div>
+		<div class="vous">
+			<p class="pOne"><strong>Vous n'êtes pas un Pro ?</strong></p>
+			<p>(même si vous êtes trés fort)</p>
+			<img src="https://iam.manomano.fr/auth/resources/43yk4/login/spartacux-pro/img/other-market-logo.svg" width="70%" alt="Pre Footer">
+		</div>
 	{% endblock %}
+
+    </body>
+</html>
+
+{# ... #}
+
+

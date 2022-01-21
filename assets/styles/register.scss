@@ -1,0 +1,101 @@
+
+.login-body{
+    margin: 1rem;
+    font-family: "Open Sans";
+
+    h1{
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: bold;
+    }
+    .first-p{
+        text-align: center;
+        font-size: .9rem;
+    }
+}
+
+.login-register{
+    background-color: #ffffff;
+    padding: 1rem;
+    .div-oublie{
+        margin-top: 1rem;
+        text-align: right;
+        .oublie{
+            color: black;
+            text-decoration-line: underline;
+            
+        }
+        .checkbox-div{
+            padding-top: 1rem;
+            text-align: left;
+        }
+        button{
+            background-color: #ffb950;
+        }
+    }
+}
+
+.loginorregister{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.create{
+    border-top: 1.5px solid lightgray;
+    text-align: center;
+}
+
+.pOne{
+    padding-top: 2rem;
+}
+
+.registeryou{
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-color: black;
+    margin-bottom: 1.5rem;
+}
+
+.navlogin{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+
+    p{
+        padding-left: 1rem;
+    }
+
+    img{
+        padding-left: 2.5rem;
+    }
+}
+
+.voulez{
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+    background-color: white;
+    text-align: center;
+
+    p{
+        font-size: .8rem;
+        text-align: left;
+        padding-left: 0.7rem;
+        padding-bottom: initial;
+    }
+
+    strong{
+        font-size: .9rem;
+        padding-left: initial;
+        
+    }
+}
+
+.vous{
+    border: 1px solid gray;
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    background-color: white;
+    text-align: center;
+}
