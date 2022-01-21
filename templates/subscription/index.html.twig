@@ -56,12 +56,17 @@
         .new-sub-container {
             margin-left: 2rem;
         }
+        .sub-nav-item-link {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0c193a;
+        }
     </style>
     <div>
         <a class="new-sub-link" href="{{ path('user_index') }}">Profile</a><span> > Subcriptions</span>
         <h1 class="sub-title-h1">My subscription</h1>
         <span class="new-sub-container">
-            <i class="fas fa-heart"></i>
+            <i class="fas fa-clock"></i>
            <a class="new-sub-link" href="{{ path('new_subscription') }}">Create subscription</a>
         </span>
     </div>
