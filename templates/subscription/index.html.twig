@@ -9,16 +9,65 @@
         }
         
         body {
-            font-family: Open Sans, mm-main, Arial, sans-serif;
             font-size: 14px;
+        }
+
+        .sub-card,
+        .sub-prod-card {
+            border: 1px solid #e6e6e6;
+            margin: 1rem .5rem;
+            padding: 1rem;
+        }
+        
+        .sub-prod-name {
+            min-height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .bottom-sub-prod-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-prod-quantity {
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            overflow-x: visible;
+            height: 40px;
+            color: #0c193a;
+        }
+
+        .sub-prod-price {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .sub-title-h1 {
+            padding: 0 10px;
+        }
+
+        .new-sub-container {
+            margin-left: 2rem;
+        }
+        .sub-nav-item-link {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0c193a;
         }
     </style>
     <div>
         <a class="new-sub-link" href="{{ path('user_index') }}">Profile</a><span> > Subcriptions</span>
-        <h1>My subscription</h1>
-        <span>
-            <i class="fas fa-heart"></i>
-           <a class="new-sub-link" href="{{ path('new_subscription') }}">Create a new subscription</a>
+        <h1 class="sub-title-h1">My subscription</h1>
+        <span class="new-sub-container">
+            <i class="fas fa-clock"></i>
+           <a class="new-sub-link" href="{{ path('new_subscription') }}">Create subscription</a>
         </span>
     </div>
     <nav class="sub-nav">
@@ -33,27 +82,48 @@
             </ul>
         </div>
     </nav>
-    {% for subscription in subscriptions %}
-        <div class="subscription">
-            <h1>{{ subscription.name }}</h1>
-            {% if subscription.period.y == 1 %}{% set date_text = 'year' %}{% endif %}
-            {% if subscription.period.y > 1 %}{% set date_text = subscription.period.y ~ ' years' %}{% endif %}
-            {% if subscription.period.m == 1 %}{% set date_text = 'month' %}{% endif %}
-            {% if subscription.period.m > 1 %}{% set date_text = subscription.period.m ~ ' months' %}{% endif %}
-            {% if subscription.period.d == 1 %}{% set date_text = 'day' %}{% endif %}
-            {% if subscription.period.d > 1 %}{% set date_text = subscription.period.d ~ ' days' %}{% endif %}
-            <p>Every {{ date_text }}</p>
-            <p>Next delivery: {{ subscription.nextDelivery|date }}</p>
-            {% for product in subscription.subscriptionProducts %}
-                <div class="subscription-product">
-                    <h2>{{ product.product.name }}</h2>
-                    <p>{{ product.price }} €</p>
-                    <p>Quantity: {{ product.quantity }}</p>
+    <header>
+        {# inclure the render for active or inactive subs #}
+
+        <div class="active-sub">
+
+            {% for subscription in subscriptions %}
+                
+                <div class="subscription sub-card">
+
+                            <h1 class="sub-title">{{ subscription.name }}</h1>
+        
+                            {% if subscription.period.y == 1 %}{% set date_text = 'year' %}{% endif %}
+                            {% if subscription.period.y > 1 %}{% set date_text = subscription.period.y ~ ' years' %}{% endif %}
+                            {% if subscription.period.m == 1 %}{% set date_text = 'month' %}{% endif %}
+                            {% if subscription.period.m > 1 %}{% set date_text = subscription.period.m ~ ' months' %}{% endif %}
+                            {% if subscription.period.d == 1 %}{% set date_text = 'day' %}{% endif %}
+                            {% if subscription.period.d > 1 %}{% set date_text = subscription.period.d ~ ' days' %}{% endif %}
+        
+                            <p class="sub-delay">Every {{ date_text }}</p>
+
+                            <p class="sub-next-delivery">Next delivery : <strong>{{ subscription.nextDelivery|date }}</strong></p>
+
+
+                    {% for product in subscription.subscriptionProducts %}
+
+                        <div class="subscription-product sub-prod-card">
+                            <h2 class="sub-prod-name">{{ product.product.name }}</h2>
+                            <div class="bottom-sub-prod-card">
+                                <p class="sub-prod-quantity">Quantity : {{ product.quantity }}</p>
+                                <p class="sub-prod-price">{{ product.price }} €</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    
                 </div>
             {% endfor %}
         </div>
-    {% endfor %}
-    <header>
-        {# inclure the render for active or inactive subs #}
+
+        <div class="inactive-sub">
+
+        </div>
+
     </header>
 {% endblock %}
