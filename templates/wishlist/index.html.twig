@@ -3,6 +3,65 @@
 {% block title %}My Wish Lists{% endblock %}
 
 {% block body %}
+    <style>
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-size: 14px;
+        }
+
+        .sub-card,
+        .sub-prod-card {
+            border: 1px solid #e6e6e6;
+            margin: 1rem .5rem;
+            padding: 1rem;
+        }
+        
+        .sub-prod-name {
+            min-height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .bottom-sub-prod-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-prod-quantity {
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            overflow-x: visible;
+            height: 40px;
+            color: #0c193a;
+        }
+
+        .sub-prod-price {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .sub-title-h1 {
+            padding: 0 10px;
+        }
+
+        .new-sub-container {
+            margin-left: 2rem;
+        }
+        .sub-nav-item-link {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0c193a;
+        }
+    </style>
 <div>
     <a class="new-sub-link" href="{{ path('user_index') }}">Profile</a><span> > Wish Lists</span>
     <h1>My wish lists</h1>
@@ -12,12 +71,14 @@
     </span>
 </div>
 {% for wishlist in wishlists %}
-    <div class="wishlist">
-        <h1>{{ wishlist.name }}</h1>
+    <div class="subscription sub-card">
+        <h1 class="sub-title">{{ wishlist.name }}</h1>
         {% for product in wishlist.wishlistProducts %}
-            <div class="wishlist-product">
-                <h2>{{ product.product.name }}</h2>
-                <p>Quantity: {{ product.quantity }}</p>
+            <div class="subscription-product sub-prod-card">
+                <h2 class="sub-prod-name">{{ product.product.name }}</h2>
+                            <div class="bottom-sub-prod-card">
+                                <p class="sub-prod-quantity">Quantity : {{ product.quantity }}</p>
+                            </div>
             </div>
         {% endfor %}
         <form class="sub-products-form" action="{{ path('new_subscription_from_list', {id: wishlist.id}) }}" method="GET">
