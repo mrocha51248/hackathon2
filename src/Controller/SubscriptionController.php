@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Subscription;
 use App\Entity\SubscriptionProduct;
 use App\Entity\WishList;
+use App\Repository\ProductRepository;
 use App\Repository\SubscriptionRepository;
 use DateInterval;
 use DateTime;
