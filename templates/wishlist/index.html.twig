@@ -17,6 +17,7 @@
             border: 1px solid #e6e6e6;
             margin: 1rem .5rem;
             padding: 1rem;
+            background-color: #fff;
         }
         
         .sub-prod-name {
@@ -26,6 +27,7 @@
             font-weight: 600;
             font-size: 14px;
             line-height: 20px;
+            margin-left: 1rem;
         }
 
         .bottom-sub-prod-card {
@@ -61,6 +63,20 @@
             font-weight: 600;
             color: #0c193a;
         }
+
+        .sub-image {
+            height: auto;
+            max-height: 112px;
+            max-width: auto;
+            width: auto;
+        }
+
+        .top-sub-prod-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
     </style>
 <div>
     <a class="new-sub-link" href="{{ path('user_index') }}">Profile</a><span> > Wish Lists</span>
@@ -75,7 +91,10 @@
         <h1 class="sub-title">{{ wishlist.name }}</h1>
         {% for product in wishlist.wishlistProducts %}
             <div class="subscription-product sub-prod-card">
-                <h2 class="sub-prod-name">{{ product.product.name }}</h2>
+                            <div class="top-sub-prod-card">
+                                <img class="sub-image" src="{{ product.product.image }}" alt="{{ product.product.name }}">
+                                <h2 class="sub-prod-name">{{ product.product.name }}</h2>
+                            </div>
                             <div class="bottom-sub-prod-card">
                                 <p class="sub-prod-quantity">Quantity : {{ product.quantity }}</p>
                             </div>
